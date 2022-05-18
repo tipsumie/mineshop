@@ -7,11 +7,11 @@ const orderSchema = mongoose.Schema(
       required: true,
       ref: 'User',
     },
-    orderItem: {
+    orderItems: {
       name: { type: String, require: true },
       quantity: { type: Number, require: true },
       image: { type: String, require: true },
-      price: { type: String, require: true },
+      price: { type: Number, require: true },
       product: {
         type: mongoose.Schema.Types.ObjectId,
         require: true,
@@ -35,6 +35,11 @@ const orderSchema = mongoose.Schema(
       email_address: { type: String },
     },
     taxPrice: {
+      type: Number,
+      required: true,
+      default: 0.0,
+    },
+    itemsPrice: {
       type: Number,
       required: true,
       default: 0.0,
